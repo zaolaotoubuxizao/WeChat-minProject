@@ -1,0 +1,8 @@
+<swiper>
+    <swiper-item 
+    wx:for="{{swiperData}}"
+    item-id="">
+        <image class="" src="{{item.image_src}}" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+    </swiper-item>
+</swiper>
+  

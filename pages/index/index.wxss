@@ -1,0 +1,40 @@
+.index_content .indexSwiper {
+  height: 340rpx;
+}
+.index_content .catitems {
+  display: flex;
+}
+.index_content .catitems navigator {
+  flex: 1;
+  padding: 30rpx;
+}
+.index_content .floorList .floorItem .floor_title {
+  background-color: #f4f4f4;
+  padding-top: 16rpx;
+}
+.index_content .floorList .floorItem .product_list {
+  padding-right: 14rpx;
+  margin: 20rpx 0;
+  overflow: hidden;
+}
+.index_content .floorList .floorItem .product_list navigator {
+  border-radius: 10rpx;
+  padding-left: 14rpx;
+  float: left;
+  width: 33.33%;
+}
+.index_content .floorList .floorItem .product_list navigator:nth-last-child(-n+4) {
+  /*  
+    原图的宽度 / 原图的高度  =变化后的宽度 / 变化后的高度  
+    变化后的高度  = 变化后的宽度(750rpx / 3 ) * 原图的高度 / 原图的宽度
+    height =  750rpx / 3 *  386 / 232;
+    height =  750rpx / 3 *  386 / 232  / 2 
+    */
+  height: 196.32758621rpx;
+}
+.index_content .floorList .floorItem .product_list navigator:nth-last-child(-n+4):nth-last-child(-n+2) {
+  border-top: 14rpx solid #fff;
+}
+.index_content .floorList .floorItem .product_list navigator image {
+  height: 100%;
+}

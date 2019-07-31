@@ -1,0 +1,34 @@
+<view class="index_content">
+    <!-- 搜索按钮组件部分 -->
+    <InputSearch></InputSearch>
+    <!-- 搜索按钮部分 -->
+    <!-- 主页轮播图部分 -->
+    <swiper class="indexSwiper" indicator-dots autoplay circular="true">
+        <swiper-item wx:for="{{swiperData}}" wx:key="item" class="swiperItem">
+            <image mode="widthFix" src="{{item.image_src}}" />
+        </swiper-item>
+    </swiper>
+    <!-- 主页轮播图部分 -->
+    <!-- 导航栏部分 -->
+    <view class="catitems">
+        <navigator wx:for="{{catitemsData}}" wx:key="name">
+            <image class="" src="{{item.image_src}}" mode="widthFix" />
+        </navigator>
+    </view>
+    <!-- 导航栏部分 -->
+    <!-- 首页 楼层部分 -->
+    <view class="floorList">
+        <view class="floorItem" wx:for="{{floordata}}" wx:for-item="item1" wx:for-index="index1" wx:key="item">
+            <view class="floor_title">
+                <image src="{{item1.floor_title.image_src}}" mode="widthFix" />
+            </view>
+            <view class="product_list">
+                <navigator wx:for="{{item1.product_list}}" wx:for-item="item2" wx:for-index="index2"
+                wx:key="name">
+                    <image src="{{item2.image_src}}" mode="{{index2===0?'widthFix':'scaleToFill'}}" />
+                </navigator>
+            </view>
+        </view>
+    </view>
+    <!-- 首页 楼层部分 -->
+</view>

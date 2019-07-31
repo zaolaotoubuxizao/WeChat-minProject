@@ -1,0 +1,12 @@
+<view class="inputSearch">
+    <text class="iconfont icon-search">
+    </text>
+    <navigator>
+        搜索
+    </navigator>
+</view>
+  
+
+  
+  
+  
