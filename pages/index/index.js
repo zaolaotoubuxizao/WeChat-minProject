@@ -17,6 +17,7 @@ Page({
     this.getFloorData()
     this.getCatitemsData()
   },
+  // 获取轮播图数据
   getSwiperData(){
     request({url:"/home/swiperdata"})
       .then(res=>{
@@ -26,15 +27,17 @@ Page({
         })
       })
   },
+  // 获取导航栏数据
   getCatitemsData(){
     request({url:"/home/catitems"})
       .then(res=>{
-        console.log(res.message)
+        // console.log(res.message)
         this.setData({
           catitemsData:res.message
         })
       })
   },
+  // 获取楼层商品列表数据
   getFloorData(){
     request({url:"/home/floordata"})
       .then(res=>{

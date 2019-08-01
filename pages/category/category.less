@@ -1,0 +1,51 @@
+.categories{
+    height:~'calc(100vh - 96rpx)';
+    display: flex;
+    .leftMenuList{
+        flex: 1;
+        view{
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            padding: 24rpx 0;
+            font-size: 36rpx;
+        }
+        .active{
+            color: var(--themeColor);
+            border-left : 5rpx solid var(--themeColor);
+        }
+    }
+    .rightGoodsList{
+        flex: 3;
+        .goodsListTitle{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 36rpx;
+            margin-top: 28rpx;
+            text{
+                padding: 0 10rpx;
+            }
+        }
+        .goodsListContent{
+            display: flex;
+            flex-wrap: wrap;
+            navigator{
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                flex-wrap: wrap;
+                width: 33.33%;
+                image{
+                    width: 50%;
+                    margin-bottom: -30rpx;
+                }
+                text{
+                    width: 100%;
+                    text-align: center;
+                    
+                }
+            }
+        }
+    }
+}

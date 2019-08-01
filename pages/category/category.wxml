@@ -1,2 +1,41 @@
-<!--pages/category/category.wxml-->
-<text>pages/category/category.wxml</text>
+<InputSearch></InputSearch>
+<view class="categories">
+    <scroll-view
+    class="leftMenuList"
+    scroll-y
+    >
+        <view wx:for="{{leftMenuList}}" 
+        wx:key="cat_id" 
+        data-index="{{index}}" 
+        bindtap="handleMenuChange"
+        class="leftMenuItem {{index===currentIndex?'active':''}}"
+        >{{item.cat_name}}</view>
+    </scroll-view>
+    <scroll-view 
+    class="rightGoodsList"
+    scroll-y
+    scroll-top="{{scrollTop}}"
+    >
+        <view wx:for="{{rightGoodsList}}" wx:for-item="item1" wx:for-index="index1" wx:key="item">
+            <view class="goodsListTitle">
+                <text>/</text>
+                {{item1.cat_name}}
+                <text>/</text>
+            </view>
+            <view class="goodsListContent">
+                <navigator 
+                wx:for="{{item1.children}}" 
+                wx:for-item="item2" 
+                wx:for-index="index2"
+                wx:key="cat_id"
+                url="/pages/goods_list/index?cid={{item2.cat_id}}"
+                >
+                    <image src="{{item2.cat_icon}}" mode="widthFix"/>
+                    <text>
+                        {{item2.cat_name}}
+                    </text>
+                </navigator>
+            </view>
+        </view>
+    </scroll-view>
+</view>

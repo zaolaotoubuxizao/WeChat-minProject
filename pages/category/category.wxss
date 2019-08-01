@@ -1,1 +1,50 @@
-/* pages/category/category.wxss */
+.categories {
+  height: calc(100vh - 96rpx);
+  display: flex;
+}
+.categories .leftMenuList {
+  flex: 1;
+}
+.categories .leftMenuList view {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 24rpx 0;
+  font-size: 36rpx;
+}
+.categories .leftMenuList .active {
+  color: var(--themeColor);
+  border-left: 5rpx solid var(--themeColor);
+}
+.categories .rightGoodsList {
+  flex: 3;
+}
+.categories .rightGoodsList .goodsListTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36rpx;
+  margin-top: 28rpx;
+}
+.categories .rightGoodsList .goodsListTitle text {
+  padding: 0 10rpx;
+}
+.categories .rightGoodsList .goodsListContent {
+  display: flex;
+  flex-wrap: wrap;
+}
+.categories .rightGoodsList .goodsListContent navigator {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  width: 33.33%;
+}
+.categories .rightGoodsList .goodsListContent navigator image {
+  width: 50%;
+  margin-bottom: -30rpx;
+}
+.categories .rightGoodsList .goodsListContent navigator text {
+  width: 100%;
+  text-align: center;
+}
