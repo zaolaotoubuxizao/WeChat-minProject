@@ -1,7 +1,9 @@
 <InputSearch></InputSearch>
 <Tabs tabsData="{{tabsData1}}" binditemChange="handleItemChange"></Tabs>
 <block wx:if="{{tabsData1[0].isActive}}" wx:for="{{goodsList}}" wx:key="goods_id">
-    <view class="goodsList">
+    <navigator class="goodsList"
+    url="{{'/pages/goods_detail/goods_detail?goods_id='+item.goods_id}}"
+    >
         <view class="goodsItem">
             <view class="img">
                 <image 
@@ -13,7 +15,7 @@
                 <view class="goods_item_price">￥{{item.goods_price}}</view>
             </view>
         </view>
-    </view>
+    </navigator>
 </block>
 <block wx:if="{{tabsData1[1].isActive}}">
     <view>项目2开发中</view>
