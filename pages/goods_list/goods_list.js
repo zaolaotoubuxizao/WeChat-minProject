@@ -1,5 +1,7 @@
 // 引入封装好的请求方法
-import {request} from "../../request/request.js";
+import {
+  request
+} from "../../request/request.js";
 import regeneratorRuntime from '../../lib/runtime/runtime';
 Page({
   data: {
@@ -41,29 +43,25 @@ Page({
     this.getGoodsList()
   },
   // 获取商品列表数据
-  getGoodsList() {
-    request({
-        url: "/goods/search",
-        data: this.queryParam
-      })
-      .then(res => {
-        // console.log(res);
-        // 计算总的页数
-        this.totalPages = Math.ceil(res.message.total / this.queryParam.pagesize)
-        // 要拼接数组
-        this.setData({
-          goodsList: [...this.data.goodsList, ...res.message.goods]
-        })
-        // 成功拿回数据后，判断操作是否是由下刷新触发，然后关闭下拉刷新
-        if (this.flag) {
-          // console.log("是下拉刷新触发");
-          // 关闭下拉刷新
-          wx.stopPullDownRefresh()
-          // 再将防御性变量初始化
-          this.flag = false;
-        }
-      })
-
+  async getGoodsList() {
+    const res = await request({
+      url: "/goods/search",
+      data: this.queryParam
+    })
+    //  计算总的页数
+    this.totalPages = Math.ceil(res.message.total / this.queryParam.pagesize)
+    // 要拼接数组
+    this.setData({
+      goodsList: [...this.data.goodsList, ...res.message.goods]
+    })
+    // 成功拿回数据后，判断操作是否是由下刷新触发，然后关闭下拉刷新
+    if (this.flag) {
+      // console.log("是下拉刷新触发");
+      // 关闭下拉刷新
+      wx.stopPullDownRefresh()
+      // 再将防御性变量初始化
+      this.flag = false;
+    }
   },
   // 页面上拉 滚动条触底事件
   onReachBottom() {
@@ -101,9 +99,7 @@ Page({
   // 子组件触发的事件 获取子组件tab选中的tab的id值
   handleItemChange(active) {
     // console.log(active);
-    const {
-      id
-    } = active.detail;
+    const {id} = active.detail;
     let {
       tabsData1
     } = this.data

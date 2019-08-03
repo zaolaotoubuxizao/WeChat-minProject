@@ -2,6 +2,7 @@
 // 2 以前vue node中引入js文件的时候  
 // 3 小程序中 不要省略 建议把引入的路径名补充完整 
 import { request } from "../../request/request.js";
+import regeneratorRuntime from '../../lib/runtime/runtime';
 // pages/category/category.js
 Page({
 
@@ -57,25 +58,38 @@ Page({
     }
   },
   // 获取商品分类数据
-  getCategories(){
-    request({url:"/categories"})
-      .then(res=>{
-        // console.log(res.message);
-        // 给全局数据赋值
-        this.categories=res.message
-        // 将数据存入本地缓存中
-        wx.setStorageSync("cates",{time:Date.now(),data:this.categories});
-        // 分离左侧列表数据
-        const leftMenuList=this.categories.map(v=>{
-          return {cat_id:v.cat_id,cat_name:v.cat_name}
-        })
-        // let index=this.data.currentIndex
-        this.setData({
-          leftMenuList,
-          rightGoodsList:this.categories[this.data.currentIndex].children
-        })
-        // console.log(this.leftMenuList);
-      })
+  async getCategories(){
+    const res=await request({url:"/categories"})
+     // 给全局数据赋值
+     this.categories=res.message
+     // 将数据存入本地缓存中
+     wx.setStorageSync("cates",{time:Date.now(),data:this.categories});
+     // 分离左侧列表数据
+     const leftMenuList=this.categories.map(v=>{
+       return {cat_id:v.cat_id,cat_name:v.cat_name}
+     })
+     // let index=this.data.currentIndex
+     this.setData({
+       leftMenuList,
+       rightGoodsList:this.categories[this.data.currentIndex].children
+     })
+      // .then(res=>{
+      //   // console.log(res.message);
+      //   // 给全局数据赋值
+      //   this.categories=res.message
+      //   // 将数据存入本地缓存中
+      //   wx.setStorageSync("cates",{time:Date.now(),data:this.categories});
+      //   // 分离左侧列表数据
+      //   const leftMenuList=this.categories.map(v=>{
+      //     return {cat_id:v.cat_id,cat_name:v.cat_name}
+      //   })
+      //   // let index=this.data.currentIndex
+      //   this.setData({
+      //     leftMenuList,
+      //     rightGoodsList:this.categories[this.data.currentIndex].children
+      //   })
+      //   // console.log(this.leftMenuList);
+      // })
   },
   // 点击左侧列表事件
   handleMenuChange(e){
