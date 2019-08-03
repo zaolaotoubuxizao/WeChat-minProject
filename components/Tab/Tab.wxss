@@ -1,0 +1,15 @@
+.tabs {
+  display: flex;
+}
+.tabs view {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  padding: 20rpx 0;
+}
+.tabs .active {
+  color: var(--themeColor);
+  border-bottom: 4rpx solid var(--themeColor);
+}

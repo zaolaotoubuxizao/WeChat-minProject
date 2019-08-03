@@ -6,7 +6,7 @@ export const request=(requestData)=>{
             resolve(result.data)
         },
         fail:(err)=>{
-            resject(err)
+            reject(err)
         }
         })
     })
